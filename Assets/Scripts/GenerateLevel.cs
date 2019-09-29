@@ -10,12 +10,12 @@ public class GenerateLevel : MonoBehaviour
     public int numberOfEnemies;
     public int numberOfTerrainObjects;
 
-    public GameObject terrain;
-    private MeshCollider col;
+    //public GameObject terrain;
+    private BoxCollider col;
     // Start is called before the first frame update
     void Start()
     {
-        col = terrain.GetComponent<MeshCollider>();
+        col = gameObject.GetComponent<BoxCollider>();
         GenerateObject(terrainObject, numberOfTerrainObjects);
         GenerateObject(enemy, numberOfEnemies);
     }

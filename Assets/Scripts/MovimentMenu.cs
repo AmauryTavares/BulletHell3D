@@ -19,7 +19,7 @@ public class MovimentMenu : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.x -= Screen.width / 2;
         mousePos.y -= Screen.height / 2;
-        print(mousePos);
+
         rotationTarget = Quaternion.Euler(mousePos.y * 5, -mousePos.x, 0);
 
         if (previousRotation != rotationTarget || previousRotation == Quaternion.Euler(0, 0, 0))
