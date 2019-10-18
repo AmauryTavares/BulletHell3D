@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: afe15bec800486e4ea74fc199167ea7b
+guid: 30593a378a46bc34fb998b4bb9d44bde
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -14,98 +14,98 @@ ModelImporter:
     100016: anelar3.R_end
     100018: antebraco.L
     100020: antebraco.R
-    100022: //RootNode
-    100024: body
-    100026: braco.L
-    100028: braco.R
-    100030: cabeca
-    100032: cabelo1
-    100034: cabelo2
-    100036: cabelo3
-    100038: cabelo4
-    100040: cabelo4_end
-    100042: canela.L
-    100044: canela.R
-    100046: clavicula.L
-    100048: clavicula.R
-    100050: femur.L
-    100052: femur.R
-    100054: IK_cabelo
-    100056: IK_cabelo_end
-    100058: IK_cotovelo.L
-    100060: IK_cotovelo.L_end
-    100062: IK_cotovelo.R
-    100064: IK_cotovelo.R_end
-    100066: IK_joelho.L
-    100068: IK_joelho.L_end
-    100070: IK_joelho.R
-    100072: IK_joelho.R_end
-    100074: IK_mao.L
-    100076: IK_mao.L_end
-    100078: IK_mao.R
-    100080: IK_mao.R_end
-    100082: IK_olho.L
-    100084: IK_olho.L_end
-    100086: IK_olho.R
-    100088: IK_olho.R_end
-    100090: IK_pe.L
-    100092: IK_pe.L_end
-    100094: IK_pe.R
-    100096: IK_pe.R_end
-    100098: IK_visao
-    100100: indicador1.L
-    100102: indicador1.R
-    100104: indicador2.L
-    100106: indicador2.R
-    100108: indicador3.L
-    100110: indicador3.L_end
-    100112: indicador3.R
-    100114: indicador3.R_end
-    100116: main
-    100118: mao.L
-    100120: mao.R
-    100122: maxilar
-    100124: maxilar_end
-    100126: mecha
-    100128: medio1.L
-    100130: medio1.R
-    100132: medio2.L
-    100134: medio2.R
-    100136: medio3.L
-    100138: medio3.L_end
-    100140: medio3.R
-    100142: medio3.R_end
-    100144: minimo1.L
-    100146: minimo1.R
-    100148: minimo2.L
-    100150: minimo2.R
-    100152: minimo3.L
-    100154: minimo3.L_end
-    100156: minimo3.R
-    100158: minimo3.R_end
-    100160: olho.L
-    100162: olho.L_end
-    100164: olho.R
-    100166: olho.R_end
-    100168: pe.L
-    100170: pe.R
-    100172: pelvis
-    100174: pescoco
-    100176: polegar1.L
-    100178: polegar1.R
-    100180: polegar2.L
-    100182: polegar2.R
-    100184: polegar3.L
-    100186: polegar3.L_end
-    100188: polegar3.R
-    100190: polegar3.R_end
-    100192: pontape.L
-    100194: pontape.L_end
-    100196: pontape.R
-    100198: pontape.R_end
-    100200: respiracao
-    100202: respiracao_end
-    100204: rig
+    100022: body
+    100024: braco.L
+    100026: braco.R
+    100028: cabeca
+    100030: cabelo1
+    100032: cabelo2
+    100034: cabelo3
+    100036: cabelo4
+    100038: cabelo4_end
+    100040: canela.L
+    100042: canela.R
+    100044: clavicula.L
+    100046: clavicula.R
+    100048: femur.L
+    100050: femur.R
+    100052: IK_cabelo
+    100054: IK_cabelo_end
+    100056: IK_cotovelo.L
+    100058: IK_cotovelo.L_end
+    100060: IK_cotovelo.R
+    100062: IK_cotovelo.R_end
+    100064: IK_joelho.L
+    100066: IK_joelho.L_end
+    100068: IK_joelho.R
+    100070: IK_joelho.R_end
+    100072: IK_mao.L
+    100074: IK_mao.L_end
+    100076: IK_mao.R
+    100078: IK_mao.R_end
+    100080: IK_olho.L
+    100082: IK_olho.L_end
+    100084: IK_olho.R
+    100086: IK_olho.R_end
+    100088: IK_pe.L
+    100090: IK_pe.L_end
+    100092: IK_pe.R
+    100094: IK_pe.R_end
+    100096: IK_visao
+    100098: indicador1.L
+    100100: indicador1.R
+    100102: indicador2.L
+    100104: indicador2.R
+    100106: indicador3.L
+    100108: indicador3.L_end
+    100110: indicador3.R
+    100112: indicador3.R_end
+    100114: main
+    100116: mao.L
+    100118: mao.R
+    100120: maxilar
+    100122: maxilar_end
+    100124: mecha
+    100126: medio1.L
+    100128: medio1.R
+    100130: medio2.L
+    100132: medio2.R
+    100134: medio3.L
+    100136: medio3.L_end
+    100138: medio3.R
+    100140: medio3.R_end
+    100142: minimo1.L
+    100144: minimo1.R
+    100146: minimo2.L
+    100148: minimo2.R
+    100150: minimo3.L
+    100152: minimo3.L_end
+    100154: minimo3.R
+    100156: minimo3.R_end
+    100158: olho.L
+    100160: olho.L_end
+    100162: olho.R
+    100164: olho.R_end
+    100166: pe.L
+    100168: pe.R
+    100170: pelvis
+    100172: pescoco
+    100174: polegar1.L
+    100176: polegar1.R
+    100178: polegar2.L
+    100180: polegar2.R
+    100182: polegar3.L
+    100184: polegar3.L_end
+    100186: polegar3.R
+    100188: polegar3.R_end
+    100190: pontape.L
+    100192: pontape.L_end
+    100194: pontape.R
+    100196: pontape.R_end
+    100198: respiracao
+    100200: respiracao_end
+    100202: rig
+    100204: //RootNode
     100206: torax
     400000: abdomen
     400002: anelar1.L
@@ -118,106 +118,111 @@ ModelImporter:
     400016: anelar3.R_end
     400018: antebraco.L
     400020: antebraco.R
-    400022: //RootNode
-    400024: body
-    400026: braco.L
-    400028: braco.R
-    400030: cabeca
-    400032: cabelo1
-    400034: cabelo2
-    400036: cabelo3
-    400038: cabelo4
-    400040: cabelo4_end
-    400042: canela.L
-    400044: canela.R
-    400046: clavicula.L
-    400048: clavicula.R
-    400050: femur.L
-    400052: femur.R
-    400054: IK_cabelo
-    400056: IK_cabelo_end
-    400058: IK_cotovelo.L
-    400060: IK_cotovelo.L_end
-    400062: IK_cotovelo.R
-    400064: IK_cotovelo.R_end
-    400066: IK_joelho.L
-    400068: IK_joelho.L_end
-    400070: IK_joelho.R
-    400072: IK_joelho.R_end
-    400074: IK_mao.L
-    400076: IK_mao.L_end
-    400078: IK_mao.R
-    400080: IK_mao.R_end
-    400082: IK_olho.L
-    400084: IK_olho.L_end
-    400086: IK_olho.R
-    400088: IK_olho.R_end
-    400090: IK_pe.L
-    400092: IK_pe.L_end
-    400094: IK_pe.R
-    400096: IK_pe.R_end
-    400098: IK_visao
-    400100: indicador1.L
-    400102: indicador1.R
-    400104: indicador2.L
-    400106: indicador2.R
-    400108: indicador3.L
-    400110: indicador3.L_end
-    400112: indicador3.R
-    400114: indicador3.R_end
-    400116: main
-    400118: mao.L
-    400120: mao.R
-    400122: maxilar
-    400124: maxilar_end
-    400126: mecha
-    400128: medio1.L
-    400130: medio1.R
-    400132: medio2.L
-    400134: medio2.R
-    400136: medio3.L
-    400138: medio3.L_end
-    400140: medio3.R
-    400142: medio3.R_end
-    400144: minimo1.L
-    400146: minimo1.R
-    400148: minimo2.L
-    400150: minimo2.R
-    400152: minimo3.L
-    400154: minimo3.L_end
-    400156: minimo3.R
-    400158: minimo3.R_end
-    400160: olho.L
-    400162: olho.L_end
-    400164: olho.R
-    400166: olho.R_end
-    400168: pe.L
-    400170: pe.R
-    400172: pelvis
-    400174: pescoco
-    400176: polegar1.L
-    400178: polegar1.R
-    400180: polegar2.L
-    400182: polegar2.R
-    400184: polegar3.L
-    400186: polegar3.L_end
-    400188: polegar3.R
-    400190: polegar3.R_end
-    400192: pontape.L
-    400194: pontape.L_end
-    400196: pontape.R
-    400198: pontape.R_end
-    400200: respiracao
-    400202: respiracao_end
-    400204: rig
+    400022: body
+    400024: braco.L
+    400026: braco.R
+    400028: cabeca
+    400030: cabelo1
+    400032: cabelo2
+    400034: cabelo3
+    400036: cabelo4
+    400038: cabelo4_end
+    400040: canela.L
+    400042: canela.R
+    400044: clavicula.L
+    400046: clavicula.R
+    400048: femur.L
+    400050: femur.R
+    400052: IK_cabelo
+    400054: IK_cabelo_end
+    400056: IK_cotovelo.L
+    400058: IK_cotovelo.L_end
+    400060: IK_cotovelo.R
+    400062: IK_cotovelo.R_end
+    400064: IK_joelho.L
+    400066: IK_joelho.L_end
+    400068: IK_joelho.R
+    400070: IK_joelho.R_end
+    400072: IK_mao.L
+    400074: IK_mao.L_end
+    400076: IK_mao.R
+    400078: IK_mao.R_end
+    400080: IK_olho.L
+    400082: IK_olho.L_end
+    400084: IK_olho.R
+    400086: IK_olho.R_end
+    400088: IK_pe.L
+    400090: IK_pe.L_end
+    400092: IK_pe.R
+    400094: IK_pe.R_end
+    400096: IK_visao
+    400098: indicador1.L
+    400100: indicador1.R
+    400102: indicador2.L
+    400104: indicador2.R
+    400106: indicador3.L
+    400108: indicador3.L_end
+    400110: indicador3.R
+    400112: indicador3.R_end
+    400114: main
+    400116: mao.L
+    400118: mao.R
+    400120: maxilar
+    400122: maxilar_end
+    400124: mecha
+    400126: medio1.L
+    400128: medio1.R
+    400130: medio2.L
+    400132: medio2.R
+    400134: medio3.L
+    400136: medio3.L_end
+    400138: medio3.R
+    400140: medio3.R_end
+    400142: minimo1.L
+    400144: minimo1.R
+    400146: minimo2.L
+    400148: minimo2.R
+    400150: minimo3.L
+    400152: minimo3.L_end
+    400154: minimo3.R
+    400156: minimo3.R_end
+    400158: olho.L
+    400160: olho.L_end
+    400162: olho.R
+    400164: olho.R_end
+    400166: pe.L
+    400168: pe.R
+    400170: pelvis
+    400172: pescoco
+    400174: polegar1.L
+    400176: polegar1.R
+    400178: polegar2.L
+    400180: polegar2.R
+    400182: polegar3.L
+    400184: polegar3.L_end
+    400186: polegar3.R
+    400188: polegar3.R_end
+    400190: pontape.L
+    400192: pontape.L_end
+    400194: pontape.R
+    400196: pontape.R_end
+    400198: respiracao
+    400200: respiracao_end
+    400202: rig
+    400204: //RootNode
     400206: torax
     2100000: body
     2100002: mecha
+    2300000: body
+    2300002: mecha
+    3300000: body
+    3300002: mecha
     4300000: body
     4300002: mecha
     7400000: rig|base
     7400002: mixamo.com
     9500000: //RootNode
+    11100000: //RootNode
     13700000: body
     13700002: mecha
     2186277476908879412: ImportLogs
@@ -236,10 +241,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'torax' is inbetween humanoid transforms and
-      has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -251,7 +253,63 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: rig|base
+      takeName: rig|base
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: mixamo.com
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -290,431 +348,7 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human:
-    - boneName: pelvis
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: femur.L
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: femur.R
-      humanName: RightUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: canela.L
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: canela.R
-      humanName: RightLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: pe.L
-      humanName: LeftFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: pe.R
-      humanName: RightFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: abdomen
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: pescoco
-      humanName: Neck
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: cabeca
-      humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: clavicula.L
-      humanName: LeftShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: clavicula.R
-      humanName: RightShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: braco.L
-      humanName: LeftUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: braco.R
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: antebraco.L
-      humanName: LeftLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: antebraco.R
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: mao.L
-      humanName: LeftHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: mao.R
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: pontape.L
-      humanName: LeftToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: pontape.R
-      humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: olho.L
-      humanName: LeftEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: olho.R
-      humanName: RightEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: maxilar
-      humanName: Jaw
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: polegar1.L
-      humanName: Left Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: polegar2.L
-      humanName: Left Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: polegar3.L
-      humanName: Left Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: indicador1.L
-      humanName: Left Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: indicador2.L
-      humanName: Left Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: indicador3.L
-      humanName: Left Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: medio1.L
-      humanName: Left Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: medio2.L
-      humanName: Left Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: medio3.L
-      humanName: Left Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: anelar1.L
-      humanName: Left Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: anelar2.L
-      humanName: Left Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: anelar3.L
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: minimo1.L
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: minimo2.L
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: minimo3.L
-      humanName: Left Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: polegar1.R
-      humanName: Right Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: polegar2.R
-      humanName: Right Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: polegar3.R
-      humanName: Right Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: indicador1.R
-      humanName: Right Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: indicador2.R
-      humanName: Right Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: indicador3.R
-      humanName: Right Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: medio1.R
-      humanName: Right Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: medio2.R
-      humanName: Right Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: medio3.R
-      humanName: Right Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: anelar1.R
-      humanName: Right Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: anelar2.R
-      humanName: Right Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: anelar3.R
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: minimo1.R
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: minimo2.R
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: minimo3.R
-      humanName: Right Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
+    human: []
     skeleton:
     - name: attack(Clone)
       parentName: 
