@@ -4,16 +4,36 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public GameObject projectile;
+    public GameObject selectElement;
+    public GameObject orbFire;
+    public GameObject orbWater;
+    public GameObject orbNature;
+    public GameObject orbEarth;
+    public GameObject orbLightning;
 
-    private float velocity = 15;
+    private float velocity = 10;
     private float turnspeed = 10;
     private float projectileSpeed = 30;
     private float cooldownAttackMax = 0.6f;
     private float cooldownAttack = 0.6f;
+    private float cooldownSelectElement = 3;
+    private float cooldownSelectElementMax = 3;
+    private string firstElementType;
+    private string secondElementType;
+    private GameObject firstElement;
+    private GameObject secondElement;
     private bool spawnedProjectile = false;
     private bool attacking = false;
     private bool dead = false;
+    private bool isShowingSelectElement;
+
+    private bool selectedOrbFire = false;
+    private bool selectedOrbWater = false;
+    private bool selectedOrbNature = false;
+    private bool selectedOrbEarth = false;
+    private bool selectedOrbLightning = false;
+
+    private bool fisrtAttack = true;
 
     private Vector3 input;
     private Vector2 mousePos;
@@ -39,6 +59,10 @@ public class playerController : MonoBehaviour
         if (dead) return;
         reduceTime();
 
+        showSelectElement();
+        checkHoverElement();
+        checkSelectedElement();
+
         if (attacking) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -63,6 +87,297 @@ public class playerController : MonoBehaviour
         Move();
     }
 
+    void showSelectElement()
+    {
+        selectElement.SetActive(Input.GetKey(KeyCode.Mouse1));
+        isShowingSelectElement = Input.GetKey(KeyCode.Mouse1);
+    }
+
+    void checkHoverElement()
+    {
+        float dist = Vector3.Distance(new Vector3(0, 0, 0), mousePos);
+
+        if (isShowingSelectElement && dist > 140)
+        {
+            float angleY = transform.rotation.eulerAngles.y;
+            
+            if (angleY >= 324 || angleY < 36)
+            {
+                setScaleOrb(1);
+            }
+            else if (angleY >= 36 && angleY < 108)
+            {
+                setScaleOrb(2);
+            }
+            else if (angleY >= 108 && angleY < 180)
+            {
+                setScaleOrb(3);
+            }
+            else if (angleY >= 180 && angleY < 252)
+            {
+                setScaleOrb(4);
+            }
+            else if (angleY >= 252 && angleY < 324)
+            {
+                setScaleOrb(5);
+            }
+        } else
+        {
+            setScaleOrb(0);
+        }
+    }
+
+    void checkSelectedElement()
+    {
+        float dist = Vector3.Distance(new Vector3(0, 0, 0), mousePos);
+
+        if (Input.GetKeyUp(KeyCode.Mouse1) && dist > 140)
+        {
+            float angleY = transform.rotation.eulerAngles.y;
+
+            if (angleY >= 324 || angleY < 36)
+            {
+                selectedOrbFire = true;
+                showOrbs();
+                selectedOrbFire = false;
+            }
+            else if (angleY >= 36 && angleY < 108)
+            {
+                selectedOrbNature = true;
+                showOrbs();
+                selectedOrbNature = false;
+            }
+            else if (angleY >= 108 && angleY < 180)
+            {
+                selectedOrbEarth = true;
+                showOrbs();
+                selectedOrbEarth = false;
+            }
+            else if (angleY >= 180 && angleY < 252)
+            {
+                selectedOrbLightning = true;
+                showOrbs();
+                selectedOrbLightning = false;
+            }
+            else if (angleY >= 252 && angleY < 324)
+            {
+                selectedOrbWater = true;
+                showOrbs();
+                selectedOrbWater = false;
+            }
+        }
+    }
+
+    void showOrbs()
+    {
+        Vector3 orbPos = transform.position + new Vector3(1.5f, 2.5f, 0);
+
+        if (firstElementType == null || cooldownSelectElement <= 0)
+        {
+            spawnFirstOrb(orbPos);
+        }
+        else
+        {
+            spawnSecondOrb(orbPos);
+        }
+    }
+
+    void spawnFirstOrb(Vector3 orbPos)
+    {
+        if (firstElementType != null)
+        {
+            Object.Destroy(firstElement);
+            Object.Destroy(secondElement);
+        }
+
+        if (selectedOrbFire)
+        {
+            GameObject orb = Instantiate(orbFire);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateClockwisePlayer>().enabled = true;
+            firstElementType = "Fire";
+            firstElement = orb;
+            cooldownSelectElement = cooldownSelectElementMax;
+            secondElementType = null;
+            secondElement = null;
+        }
+        else if (selectedOrbNature)
+        {
+            GameObject orb = Instantiate(orbNature);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateClockwisePlayer>().enabled = true;
+            firstElementType = "Nature";
+            firstElement = orb;
+            cooldownSelectElement = cooldownSelectElementMax;
+            secondElementType = null;
+            secondElement = null;
+        }
+        else if (selectedOrbEarth)
+        {
+            GameObject orb = Instantiate(orbEarth);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateClockwisePlayer>().enabled = true;
+            firstElementType = "Earth";
+            firstElement = orb;
+            cooldownSelectElement = cooldownSelectElementMax;
+            secondElementType = null;
+            secondElement = null;
+        }
+        else if (selectedOrbLightning)
+        {
+            GameObject orb = Instantiate(orbLightning);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateClockwisePlayer>().enabled = true;
+            firstElementType = "Lightning";
+            firstElement = orb;
+            cooldownSelectElement = cooldownSelectElementMax;
+            secondElementType = null;
+            secondElement = null;
+        }
+        else if (selectedOrbWater)
+        {
+            GameObject orb = Instantiate(orbWater);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateClockwisePlayer>().enabled = true;
+            firstElementType = "Water";
+            firstElement = orb;
+            cooldownSelectElement = cooldownSelectElementMax;
+            secondElementType = null;
+            secondElement = null;
+        }
+    }
+
+    void spawnSecondOrb(Vector3 orbPos)
+    {
+        if (selectedOrbFire)
+        {
+            GameObject orb = Instantiate(orbFire);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateAntiClockwisePlayer>().enabled = true;
+            secondElementType = "Fire";
+            secondElement = orb;
+            cooldownSelectElement = 0;
+        }
+        else if (selectedOrbNature)
+        {
+            GameObject orb = Instantiate(orbNature);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateAntiClockwisePlayer>().enabled = true;
+            secondElementType = "Nature";
+            secondElement = orb;
+            cooldownSelectElement = 0;
+        }
+        else if (selectedOrbEarth)
+        {
+            GameObject orb = Instantiate(orbEarth);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateAntiClockwisePlayer>().enabled = true;
+            secondElementType = "Earth";
+            secondElement = orb;
+            cooldownSelectElement = 0;
+        }
+        else if (selectedOrbLightning)
+        {
+            GameObject orb = Instantiate(orbLightning);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateAntiClockwisePlayer>().enabled = true;
+            secondElementType = "Lightning";
+            secondElement = orb;
+            cooldownSelectElement = 0;
+        }
+        else if (selectedOrbWater)
+        {
+            GameObject orb = Instantiate(orbWater);
+            orb.transform.parent = gameObject.transform;
+            orb.transform.position = orbPos;
+            orb.transform.rotation = gameObject.transform.rotation;
+            orb.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            orb.GetComponent<orbRotateAntiClockwisePlayer>().enabled = true;
+            secondElementType = "Water";
+            secondElement = orb;
+            cooldownSelectElement = 0;
+        }
+    }
+
+    void setScaleOrb(int orb)
+    {
+        if (orb == 0)
+        {
+            orbWater.transform.localScale = new Vector3(1, 1, 1);
+            orbFire.transform.localScale = new Vector3(1, 1, 1);
+            orbNature.transform.localScale = new Vector3(1, 1, 1);
+            orbEarth.transform.localScale = new Vector3(1, 1, 1);
+            orbLightning.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (orb == 1)
+        {
+            orbFire.transform.localScale = new Vector3(2, 2, 2);
+            orbWater.transform.localScale = new Vector3(1, 1, 1);
+            orbNature.transform.localScale = new Vector3(1, 1, 1);
+            orbEarth.transform.localScale = new Vector3(1, 1, 1);
+            orbLightning.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (orb == 2)
+        {
+            orbNature.transform.localScale = new Vector3(2, 2, 2);
+            orbFire.transform.localScale = new Vector3(1, 1, 1);
+            orbWater.transform.localScale = new Vector3(1, 1, 1);
+            orbEarth.transform.localScale = new Vector3(1, 1, 1);
+            orbLightning.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (orb == 3)
+        {
+            orbEarth.transform.localScale = new Vector3(2, 2, 2);
+            orbFire.transform.localScale = new Vector3(1, 1, 1);
+            orbWater.transform.localScale = new Vector3(1, 1, 1);
+            orbNature.transform.localScale = new Vector3(1, 1, 1);
+            orbLightning.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (orb == 4)
+        {
+            orbLightning.transform.localScale = new Vector3(2, 2, 2);
+            orbFire.transform.localScale = new Vector3(1, 1, 1);
+            orbWater.transform.localScale = new Vector3(1, 1, 1);
+            orbNature.transform.localScale = new Vector3(1, 1, 1);
+            orbEarth.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (orb == 5)
+        {
+            orbWater.transform.localScale = new Vector3(2, 2, 2);
+            orbFire.transform.localScale = new Vector3(1, 1, 1);
+            orbNature.transform.localScale = new Vector3(1, 1, 1);
+            orbEarth.transform.localScale = new Vector3(1, 1, 1);
+            orbLightning.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
     void reduceTime()
     {
         if (attacking && cooldownAttack > 0)
@@ -82,6 +397,48 @@ public class playerController : MonoBehaviour
                 spawnedProjectile = false;
             }
         }
+
+        if (cooldownSelectElement > 0)
+        {
+            cooldownSelectElement -= Time.deltaTime;
+
+            if (secondElementType == null && cooldownSelectElement <= 0)
+            {
+                Vector3 orbPos = transform.position + new Vector3(1.5f, 2.5f, 0);
+
+                if (firstElementType.Equals("Fire"))
+                {
+                    selectedOrbFire = true;
+                    spawnSecondOrb(orbPos);
+                    selectedOrbFire = false;
+                }
+                else if (firstElementType.Equals("Nature"))
+                {
+                    selectedOrbNature = true;
+                    spawnSecondOrb(orbPos);
+                    selectedOrbNature = false;
+                }
+                else if (firstElementType.Equals("Earth"))
+                {
+                    selectedOrbEarth = true;
+                    spawnSecondOrb(orbPos);
+                    selectedOrbEarth = false;
+                }
+                else if (firstElementType.Equals("Lightning"))
+                {
+                    selectedOrbLightning = true;
+                    spawnSecondOrb(orbPos);
+                    selectedOrbLightning = false;
+                }
+                else if (firstElementType.Equals("Water"))
+                {
+                    selectedOrbWater = true;
+                    spawnSecondOrb(orbPos);
+                    selectedOrbWater = false;
+                }
+
+            }
+        }
     }
 
     void GetInput()
@@ -98,7 +455,7 @@ public class playerController : MonoBehaviour
     {
         angleRotation = Mathf.Atan2(mousePos.x, mousePos.y);
         angleRotation = Mathf.Rad2Deg * angleRotation;
-        //angleRotation += cam.eulerAngles.y;
+        angleRotation += cam.eulerAngles.y;
     }
 
     void Rotate()
@@ -123,13 +480,28 @@ public class playerController : MonoBehaviour
     {
         Vector3 projectilePos = transform.position + new Vector3(0, 3, 0);
         Quaternion projectileRot = transform.rotation * Quaternion.Euler(-90, 0, 0); ;
+        GameObject projectile = null;
+
+        if (fisrtAttack || secondElementType == null)
+        {
+            projectile = firstElement;
+        } 
+        else
+        {
+            projectile = secondElement;
+        }
+
+        fisrtAttack = !fisrtAttack;
 
         Rigidbody rigidbodyProjectile = projectile.GetComponent<Rigidbody>();
         Rigidbody instantiatedProjectile = Instantiate(rigidbodyProjectile, projectilePos, projectileRot);
+        instantiatedProjectile.transform.localScale = new Vector3(1, 1,1);
+        instantiatedProjectile.GetComponent<orbRotateClockwisePlayer>().enabled = false;
+        instantiatedProjectile.GetComponent<orbRotateAntiClockwisePlayer>().enabled = false;
         // Set velocity
         instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, projectileSpeed));
         // Ignore collision with the character collider
-        Physics.IgnoreCollision(projectile.GetComponent<Collider>(), GetComponent<Collider>());
+        Physics.IgnoreCollision(instantiatedProjectile.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void attack()
