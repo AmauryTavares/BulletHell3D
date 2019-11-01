@@ -9411,6 +9411,7 @@ GameObject:
   - component: {fileID: 971557689214862357}
   - component: {fileID: 823244064994725032}
   - component: {fileID: 2505653253903421505}
+  - component: {fileID: 3399237062303724881}
   m_Layer: 0
   m_Name: Magic fire pro yellow
   m_TagString: Untagged
@@ -14113,6 +14114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ca731913b561b4999f932aa32d9efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 100
 --- !u!114 &971557689214862357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14125,6 +14127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c801b1f67207ef4badde45a314aaeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 100
 --- !u!135 &823244064994725032
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14133,7 +14136,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434627103891488}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -14154,6 +14157,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3399237062303724881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434627103891488}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e432e43521658845b30be0b218a99e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  elementType: Fire
+  explosion: {fileID: 198276, guid: 1720f2c1867206149a7c64de30295781, type: 3}
 --- !u!1 &1896544013430104
 GameObject:
   m_ObjectHideFlags: 0

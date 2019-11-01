@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GenerateLevel : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject enemyFire;
+    public GameObject enemyWater;
+    public GameObject enemyEarth;
+    public GameObject enemyLightning;
+    public GameObject enemyNature;
     public GameObject terrainObject;
 
     public int numberOfEnemies;
@@ -17,7 +21,11 @@ public class GenerateLevel : MonoBehaviour
     {
         col = gameObject.GetComponent<BoxCollider>();
         GenerateObject(terrainObject, numberOfTerrainObjects);
-        GenerateObject(enemy, numberOfEnemies);
+        GenerateObject(enemyFire, Mathf.RoundToInt(numberOfEnemies / 5));
+        GenerateObject(enemyWater, Mathf.RoundToInt(numberOfEnemies / 5));
+        GenerateObject(enemyEarth, Mathf.RoundToInt(numberOfEnemies / 5));
+        GenerateObject(enemyLightning, Mathf.RoundToInt(numberOfEnemies / 5));
+        GenerateObject(enemyNature, Mathf.RoundToInt(numberOfEnemies / 5));
     }
 
     // Update is called once per frame

@@ -5,6 +5,7 @@ using UnityEngine;
 public class orbRotateClockwisePlayer : MonoBehaviour
 {
     private GameObject player;
+    public float velocity = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,6 @@ public class orbRotateClockwisePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(player.transform.position, Vector3.up, 100 * Time.deltaTime);
+        transform.RotateAround(player.transform.position, Vector3.up, velocity * Time.deltaTime);
     }
 }

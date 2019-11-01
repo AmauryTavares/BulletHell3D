@@ -11,13 +11,24 @@ public class playerController : MonoBehaviour
     public GameObject orbEarth;
     public GameObject orbLightning;
 
+    // Status Player
+    private float lifeMax = 1500;
+    private float life = 1500;
+    private float shield = 0;
+    private float shieldMax = 300;
+    private float damageAttack = 150f;
     private float velocity = 10;
-    private float turnspeed = 10;
-    private float projectileSpeed = 30;
+    private float normalVelocity = 10;
     private float cooldownAttackMax = 0.6f;
     private float cooldownAttack = 0.6f;
-    private float cooldownSelectElement = 3;
-    private float cooldownSelectElementMax = 3;
+    //
+
+    private float orbRotateVelocity = 100f;
+
+    private float turnspeed = 10;
+    private float projectileSpeed = 30;
+    private float cooldownSelectElement = 3f;
+    private float cooldownSelectElementMax = 3f;
     private string firstElementType;
     private string secondElementType;
     private GameObject firstElement;
@@ -32,6 +43,13 @@ public class playerController : MonoBehaviour
     private bool selectedOrbNature = false;
     private bool selectedOrbEarth = false;
     private bool selectedOrbLightning = false;
+
+    private bool activeExtraStatus = false;
+    private float cooldownExtraStatusMax = 5f;
+    private float cooldownExtraStatus = 5f;
+
+    private float cooldownImunity = 0f;
+    private float cooldownImunityMax = 2f;
 
     private bool fisrtAttack = true;
 
@@ -56,6 +74,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isDead();
         if (dead) return;
         reduceTime();
 
@@ -63,13 +82,11 @@ public class playerController : MonoBehaviour
         checkHoverElement();
         checkSelectedElement();
 
+        regenLife();
+
         if (attacking) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            die();
-            return;
-        }
+        isDash();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -85,6 +102,85 @@ public class playerController : MonoBehaviour
         if (Mathf.Abs(input.x) < 1 && Mathf.Abs(input.z) < 1) return; //movimenta quando um dos eixos eh igual a 1
 
         Move();
+    }
+
+    void regenLife()
+    {
+        if (activeExtraStatus && (firstElementType == "Nature" || secondElementType == "Nature") && life < lifeMax)
+        {
+            life += life * 0.010f * Time.deltaTime;
+
+            if (life > lifeMax)
+            {
+                life = lifeMax;
+            }
+
+            print(life);
+        }    
+    }
+
+    void speedUp()
+    {
+        if (activeExtraStatus && (firstElementType == "Lightning" || secondElementType == "Lightning"))
+        {
+            velocity *= 1.5f;
+        }
+    }
+
+    void shieldUp()
+    {
+        if (activeExtraStatus && (firstElementType == "Earth" || secondElementType == "Earth"))
+        {
+            shield = shieldMax;
+        }
+    }
+
+    void imunityUp()
+    {
+        if (activeExtraStatus && (firstElementType == "Water" || secondElementType == "Water"))
+        {
+            cooldownImunity = cooldownImunityMax;
+        }
+    }
+
+    void orbUp()
+    {
+        firstElement.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        firstElement.GetComponent<orbRotateClockwisePlayer>().velocity = orbRotateVelocity * 3;
+
+        secondElement.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+        secondElement.GetComponent<orbRotateAntiClockwisePlayer>().velocity = orbRotateVelocity * 3;
+    }
+
+    void orbDown()
+    {
+        firstElement.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        firstElement.GetComponent<orbRotateClockwisePlayer>().velocity = orbRotateVelocity;
+
+        secondElement.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        secondElement.GetComponent<orbRotateAntiClockwisePlayer>().velocity = orbRotateVelocity;
+    }
+
+    void isDash()
+    {
+        if (!activeExtraStatus && Input.GetKeyDown(KeyCode.Space))
+        {
+            print("ExtraStatus");
+            activeExtraStatus = true;
+
+            shieldUp();
+            imunityUp();
+            speedUp();
+            orbUp();
+        }
+    }
+
+    void isDead()
+    {
+        if (life <= 0)
+        {
+            die();
+        }
     }
 
     void showSelectElement()
@@ -398,7 +494,23 @@ public class playerController : MonoBehaviour
             }
         }
 
-        if (cooldownSelectElement > 0)
+        if (activeExtraStatus && cooldownExtraStatus > 0)
+        {
+            cooldownExtraStatus -= Time.deltaTime;
+            cooldownImunity -= Time.deltaTime;
+
+            if (cooldownExtraStatus <= 0)
+            {
+                activeExtraStatus = false;
+                cooldownExtraStatus = cooldownExtraStatusMax;
+                cooldownImunity = 0;
+                shield = 0;
+                velocity = normalVelocity;
+                orbDown();
+            }
+        }
+
+        if (firstElementType != null && cooldownSelectElement > 0)
         {
             cooldownSelectElement -= Time.deltaTime;
 
@@ -478,36 +590,153 @@ public class playerController : MonoBehaviour
 
     void spawnProjectile()
     {
-        Vector3 projectilePos = transform.position + new Vector3(0, 3, 0);
-        Quaternion projectileRot = transform.rotation * Quaternion.Euler(-90, 0, 0); ;
-        GameObject projectile = null;
-
-        if (fisrtAttack || secondElementType == null)
+        if (firstElement != null)
         {
-            projectile = firstElement;
-        } 
+            Vector3 projectilePos = transform.position + new Vector3(0, 3, 0);
+            Quaternion projectileRot = transform.rotation * Quaternion.Euler(-90, 0, 0); ;
+            GameObject projectile = null;
+            string projectileType = null;
+
+            if (fisrtAttack || secondElementType == null)
+            {
+                projectile = firstElement;
+                projectileType = firstElementType;
+            }
+            else
+            {
+                projectile = secondElement;
+                projectileType = secondElementType;
+            }
+
+            fisrtAttack = !fisrtAttack;
+
+            Rigidbody rigidbodyProjectile = projectile.GetComponent<Rigidbody>();
+            Rigidbody instantiatedProjectile = Instantiate(rigidbodyProjectile, projectilePos, projectileRot);
+            instantiatedProjectile.transform.localScale = new Vector3(1, 1, 1);
+            instantiatedProjectile.GetComponent<orbRotateClockwisePlayer>().enabled = false;
+            instantiatedProjectile.GetComponent<orbRotateAntiClockwisePlayer>().enabled = false;
+            instantiatedProjectile.GetComponent<ProjectileCollider>().enabled = true;
+
+            statusProjectile(instantiatedProjectile, projectileType);
+
+            // Set velocity
+            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, projectileSpeed));
+            // Ignore collision with the character collider
+            Physics.IgnoreCollision(instantiatedProjectile.GetComponent<Collider>(), GetComponent<Collider>());
+        }
+    }
+
+    // atribuir status ao projetil
+    void statusProjectile(Rigidbody projectile, string projectileType)
+    {
+        projectile.gameObject.tag = "ProjectilePlayer";
+        projectile.GetComponent<ProjectileCollider>().elementType = projectileType;
+
+        if (activeExtraStatus && (firstElementType == "Fire" || secondElementType == "Fire"))
+        {
+            projectile.GetComponent<ProjectileCollider>().damage = damageAttack * 2;
+        }
         else
         {
-            projectile = secondElement;
+            projectile.GetComponent<ProjectileCollider>().damage = damageAttack;
         }
-
-        fisrtAttack = !fisrtAttack;
-
-        Rigidbody rigidbodyProjectile = projectile.GetComponent<Rigidbody>();
-        Rigidbody instantiatedProjectile = Instantiate(rigidbodyProjectile, projectilePos, projectileRot);
-        instantiatedProjectile.transform.localScale = new Vector3(1, 1,1);
-        instantiatedProjectile.GetComponent<orbRotateClockwisePlayer>().enabled = false;
-        instantiatedProjectile.GetComponent<orbRotateAntiClockwisePlayer>().enabled = false;
-        // Set velocity
-        instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, projectileSpeed));
-        // Ignore collision with the character collider
-        Physics.IgnoreCollision(instantiatedProjectile.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void attack()
     {
         attacking = true;
         animator.Play("attack");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.Equals("top") || other.gameObject.name.Equals("bottom"))
+        {
+            Vector3 diff = other.gameObject.transform.position - gameObject.transform.position;
+            diff = new Vector3(0, 0, diff.z);
+            gameObject.transform.position -= Vector3.Normalize(diff) * 0.8f;
+        }
+        else if (other.gameObject.name.Equals("right") || other.gameObject.name.Equals("left"))
+        {
+            Vector3 diff = other.gameObject.transform.position - gameObject.transform.position;
+            diff = new Vector3(diff.x, 0, 0);
+            gameObject.transform.position -= Vector3.Normalize(diff) * 0.8f;
+        }
+
+
+        if (other.gameObject.tag == "ProjectileEnemy")
+        {
+            print("life: " + life);
+            print("shield: " + shield);
+            float damage = other.gameObject.GetComponent<ProjectileCollider>().damage;
+            string elementType = other.gameObject.GetComponent<ProjectileCollider>().elementType;
+
+            // fraqueza 50%
+            if (elementType == "Fire" && firstElementType == "Nature" && secondElementType == "Nature")
+            {
+                subLife(damage, 1.5f);
+            }
+            else if (elementType == "Nature" && firstElementType == "Earth" && secondElementType == "Earth")
+            {
+                subLife(damage, 1.5f);
+            }
+            else if (elementType == "Earth" && firstElementType == "Lightning" && secondElementType == "Lightning")
+            {
+                subLife(damage, 1.5f);
+            }
+            else if (elementType == "Ligthning" && firstElementType == "Water" && secondElementType == "Water")
+            {
+                subLife(damage, 1.5f);
+            }
+            else if (elementType == "Water" && firstElementType == "Fire" && secondElementType == "Fire")
+            {
+                subLife(damage, 1.5f);
+            }
+            // resistencia 50%
+            else if (elementType == "Fire" && (firstElementType == "Water" || secondElementType == "Water"))
+            {
+                subLife(damage, 0.5f);
+            }
+            else if (elementType == "Water" && (firstElementType == "Lightning" || secondElementType == "Ligthning"))
+            {
+                subLife(damage, 0.5f);
+            }
+            else if (elementType == "lightning" && (firstElementType == "Earth" || secondElementType == "Earth"))
+            {
+                subLife(damage, 0.5f);
+            }
+            else if (elementType == "Earth" && (firstElementType == "Nature" || secondElementType == "Nature"))
+            {
+                subLife(damage, 0.5f);
+            }
+            else if (elementType == "Nature" && (firstElementType == "Fire" || secondElementType == "Fire"))
+            {
+                subLife(damage, 0.5f);
+            }
+            else
+            {
+                subLife(damage, 1f);
+            }
+        }
+    }
+
+    void subLife(float damage, float mul)
+    {
+        if (cooldownImunity > 0)
+        {
+            mul = 0;
+        }
+
+        if (shield > 0)
+        {
+            shield -= mul * damage;
+        }
+        else
+        {
+            life -= mul * damage;
+        }
+
+        
     }
 
     void updateAnimation()
