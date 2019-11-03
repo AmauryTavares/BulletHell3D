@@ -7,6 +7,6 @@ public class ButtonHandlerStart : MonoBehaviour
 {
     public void OnClickStart()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Map");
     }
 }

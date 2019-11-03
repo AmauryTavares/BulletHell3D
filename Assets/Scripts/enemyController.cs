@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
+    public GameObject gameManager;
+
     private GameObject player;
     private Animator animator;
     
@@ -17,6 +19,8 @@ public class enemyController : MonoBehaviour
     public float damageAttack = 30f;
     public float cooldownAttack = 3f;
     public float cooldownAttackMax = 3f;
+    public int score = 50;
+    public bool addScore = true;
 
     private Quaternion targetRotation;
     private float cooldownDestroy = 4f;
@@ -26,6 +30,8 @@ public class enemyController : MonoBehaviour
     private bool attacking = false;
     private bool spawnedProjectile = false;
     private bool dead = false;
+
+    private bool hasSub = true;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +106,14 @@ public class enemyController : MonoBehaviour
         {
             gameObject.transform.localScale = gameObject.transform.localScale - new Vector3(0.2f, 0.2f, 0.2f) * Time.deltaTime;
             cooldownDestroy -= Time.deltaTime;
+            GetComponent<Collider>().enabled = false;
+
+            if (hasSub && addScore)
+            {
+                gameManager.GetComponent<GameManager>().subCountEnemyPortal(gameObject.transform.position);
+                gameManager.GetComponent<GameManager>().addScore(score);
+                hasSub = false;
+            }
 
             if (cooldownDestroy <= 0)
             {

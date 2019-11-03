@@ -10,16 +10,35 @@ public class GenerateLevel : MonoBehaviour
     public GameObject enemyLightning;
     public GameObject enemyNature;
     public GameObject terrainObject;
+    public GameObject portal;
+    public GameObject player;
+    private GameObject instancePortal;
 
     public int numberOfEnemies;
     public int numberOfTerrainObjects;
 
-    //public GameObject terrain;
+    public GameObject terrain;
     private BoxCollider col;
+
+    private int mapLevel;
+
+    private List<GameObject> allGameObjects = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        col = gameObject.GetComponent<BoxCollider>();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void spawnMap(int level)
+    {
+        mapLevel = level;
+        col = terrain.GetComponent<BoxCollider>();
         GenerateObject(terrainObject, numberOfTerrainObjects);
         GenerateObject(enemyFire, Mathf.RoundToInt(numberOfEnemies / 5));
         GenerateObject(enemyWater, Mathf.RoundToInt(numberOfEnemies / 5));
@@ -28,10 +47,27 @@ public class GenerateLevel : MonoBehaviour
         GenerateObject(enemyNature, Mathf.RoundToInt(numberOfEnemies / 5));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void destroyAllGameObjects()
     {
-        
+        foreach (GameObject gameObj in allGameObjects)
+        {
+            if (gameObj != null && gameObj.tag == "Enemy")
+            {
+                gameObj.GetComponent<enemyController>().addScore = false;
+                gameObj.GetComponent<enemyController>().life = 0;
+            }
+            else
+            {
+                GameObject.Destroy(gameObj);
+            }
+        }
+    }
+
+    public void spawnPortal(Vector3 posPortal)
+    {
+        instancePortal = Instantiate(portal);
+
+        instancePortal.gameObject.transform.position = new Vector3(posPortal.x, 6, posPortal.z);
     }
 
     void GenerateObject(GameObject go, int amount)
@@ -42,11 +78,45 @@ public class GenerateLevel : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             GameObject tmp = Instantiate(go);
+            
+            if (tmp.tag == "Enemy")
+            {
+                float mult = 0;
+                if (Random.Range(1, 11) <= 1)
+                {
+                    mult = (1 + (mapLevel * 0.5f));
+                    tmp.gameObject.transform.localScale = new Vector3(2, 2, 2);
+                }
+                else
+                    mult = (1 + (mapLevel * 0.15f));
+
+                tmp.GetComponent<enemyController>().life *= mult;
+                tmp.GetComponent<enemyController>().velocity *= mult;
+                tmp.GetComponent<enemyController>().vision *= mult;
+                tmp.GetComponent<enemyController>().damageAttack *= mult;
+                tmp.GetComponent<enemyController>().cooldownAttack *= mult;
+                tmp.GetComponent<enemyController>().cooldownAttackMax *= mult;
+                tmp.GetComponent<enemyController>().score = Mathf.RoundToInt(tmp.GetComponent<enemyController>().score * mult);
+                tmp.GetComponent<enemyController>().gameManager = gameObject;
+            }
+
+            allGameObjects.Add(tmp);
 
             Vector3 randomPoint = GetRandomPoint();
             tmp.gameObject.transform.position = new Vector3(randomPoint.x, tmp.transform.position.y, randomPoint.z);
         }
 
+    }
+
+    public void newPlayerPos()
+    {
+        Vector3 randomPos = GetRandomPoint();
+        player.gameObject.transform.position = new Vector3(randomPos.x, 1, randomPos.z);
+    }
+
+    public void destroyPortal()
+    {
+        GameObject.Destroy(instancePortal);
     }
 
     Vector3 GetRandomPoint()

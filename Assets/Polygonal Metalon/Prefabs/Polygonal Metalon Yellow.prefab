@@ -822,6 +822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4efa9c8681371428f0424ac02eb908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 4774775986947964124, guid: 5293a1324ebadaa4c86599dfc1e930b1,
+    type: 3}
   projectile: {fileID: 1434627103891488, guid: 52d340ed9c2714c4f8aabf1f82df1b58, type: 3}
   element: Lightning
   velocity: 4
@@ -1648,7 +1650,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.7735849, g: 0.7707087, b: 0.040138844, a: 1}
-  m_Intensity: 80
+  m_Intensity: 10
   m_Range: 8
   m_SpotAngle: 30
   m_CookieSize: 10

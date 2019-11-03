@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - ProjectilePlayer
   - ProjectileEnemy
+  - Portal
   layers:
   - Default
   - TransparentFX

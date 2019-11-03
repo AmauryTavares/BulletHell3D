@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class playerController : MonoBehaviour
     public GameObject orbNature;
     public GameObject orbEarth;
     public GameObject orbLightning;
+
+    public GameManager gameManager;
 
     // Status Player
     private float lifeMax = 1500;
@@ -64,6 +68,11 @@ public class playerController : MonoBehaviour
 
     private Animator animator;
 
+    public Image lifeBar;
+    public Image shieldBar;
+
+    private float timeReturnMenu = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,8 +84,9 @@ public class playerController : MonoBehaviour
     void Update()
     {
         isDead();
-        if (dead) return;
         reduceTime();
+        if (dead) return;
+        updateLifeBar();
 
         showSelectElement();
         checkHoverElement();
@@ -102,6 +112,12 @@ public class playerController : MonoBehaviour
         if (Mathf.Abs(input.x) < 1 && Mathf.Abs(input.z) < 1) return; //movimenta quando um dos eixos eh igual a 1
 
         Move();
+    }
+
+    void updateLifeBar()
+    {
+        lifeBar.fillAmount = life / lifeMax;
+        shieldBar.fillAmount = shield / shieldMax;
     }
 
     void regenLife()
@@ -510,6 +526,16 @@ public class playerController : MonoBehaviour
             }
         }
 
+        if (dead && timeReturnMenu > 0)
+        {
+            timeReturnMenu -= Time.deltaTime;
+
+            if (timeReturnMenu <= 0)
+            {
+                gameManager.GetComponent<GameManager>().endGame();
+            }
+        }
+
         if (firstElementType != null && cooldownSelectElement > 0)
         {
             cooldownSelectElement -= Time.deltaTime;
@@ -663,6 +689,10 @@ public class playerController : MonoBehaviour
             gameObject.transform.position -= Vector3.Normalize(diff) * 0.8f;
         }
 
+        if (other.gameObject.tag == "Portal")
+        {
+            gameManager.GetComponent<GameManager>().nextLevel();
+        }
 
         if (other.gameObject.tag == "ProjectileEnemy")
         {

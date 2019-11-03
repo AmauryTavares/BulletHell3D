@@ -1167,6 +1167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4efa9c8681371428f0424ac02eb908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 4774775986947964124, guid: 5293a1324ebadaa4c86599dfc1e930b1,
+    type: 3}
   projectile: {fileID: 1518366863219760, guid: 3d35e81bdc5955041be098ef22e82a3b, type: 3}
   element: Nature
   velocity: 4
@@ -1648,7 +1650,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.11902047, g: 0.4433962, b: 0, a: 1}
-  m_Intensity: 50
+  m_Intensity: 10
   m_Range: 8
   m_SpotAngle: 30
   m_CookieSize: 10

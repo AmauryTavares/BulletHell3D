@@ -822,6 +822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4efa9c8681371428f0424ac02eb908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 4774775986947964124, guid: 5293a1324ebadaa4c86599dfc1e930b1,
+    type: 3}
   projectile: {fileID: 1725317912486240, guid: 26fcb692f3921c24e8cdb7fae9a17ee7, type: 3}
   element: Earth
   velocity: 4
@@ -1647,8 +1649,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.6698113, g: 0.36257142, b: 0.022116425, a: 1}
-  m_Intensity: 80
+  m_Color: {r: 0.764151, g: 0.4704253, b: 0.025231415, a: 1}
+  m_Intensity: 10
   m_Range: 8
   m_SpotAngle: 30
   m_CookieSize: 10
