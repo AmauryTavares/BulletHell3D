@@ -9,13 +9,20 @@ public class GenerateLevel : MonoBehaviour
     public GameObject enemyEarth;
     public GameObject enemyLightning;
     public GameObject enemyNature;
-    public GameObject terrainObject;
     public GameObject portal;
     public GameObject player;
     private GameObject instancePortal;
 
+    public GameObject terrainObject1;
+    public GameObject terrainObject2;
+    public GameObject terrainObject3;
+    public GameObject terrainObject4;
+
     public int numberOfEnemies;
-    public int numberOfTerrainObjects;
+    public int numberOfTerrain1Objects;
+    public int numberOfTerrain2Objects;
+    public int numberOfTerrain3Objects;
+    public int numberOfTerrain4Objects;
 
     public GameObject terrain;
     private BoxCollider col;
@@ -39,7 +46,10 @@ public class GenerateLevel : MonoBehaviour
     {
         mapLevel = level;
         col = terrain.GetComponent<BoxCollider>();
-        GenerateObject(terrainObject, numberOfTerrainObjects);
+        GenerateObject(terrainObject1, numberOfTerrain1Objects);
+        GenerateObject(terrainObject2, numberOfTerrain2Objects);
+        GenerateObject(terrainObject3, numberOfTerrain3Objects);
+        GenerateObject(terrainObject4, numberOfTerrain4Objects);
         GenerateObject(enemyFire, Mathf.RoundToInt(numberOfEnemies / 5));
         GenerateObject(enemyWater, Mathf.RoundToInt(numberOfEnemies / 5));
         GenerateObject(enemyEarth, Mathf.RoundToInt(numberOfEnemies / 5));

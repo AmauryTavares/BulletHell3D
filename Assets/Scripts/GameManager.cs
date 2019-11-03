@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int level = 1;
     private float multiplier = 0.05f;
-    private int countEnemyPortal = 3;
+    private int countEnemyPortal = Random.Range(5, 31);
     private Vector3 lastEnemyPos;
 
     public Text textLevel;
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        countEnemyPortal = Random.Range(5, 31);
         GetComponent<GenerateLevel>().spawnMap(level);
         //LoadFile();
     }
@@ -117,7 +118,7 @@ public class GameManager : MonoBehaviour
         {
             GetComponent<GenerateLevel>().destroyAllGameObjects();
             GetComponent<GenerateLevel>().spawnPortal(lastEnemyPos);
-            countEnemyPortal = 3;
+            countEnemyPortal = Random.Range(5, 31);
         }
     }
 

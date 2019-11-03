@@ -14062,7 +14062,7 @@ GameObject:
   - component: {fileID: 464294}
   - component: {fileID: 19872304}
   - component: {fileID: 19912066}
-  - component: {fileID: 3910150226477065211}
+  - component: {fileID: 4910911546681684657}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Portal
@@ -14078,7 +14078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 464602}
@@ -14372,7 +14372,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -14425,7 +14425,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -18725,7 +18725,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!135 &3910150226477065211
+--- !u!135 &4910911546681684657
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18737,4 +18737,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 4
-  m_Center: {x: -0.062542915, y: 0.04476261, z: 0}
+  m_Center: {x: 0.007927179, y: -0.09941244, z: 0}

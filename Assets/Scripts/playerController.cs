@@ -124,14 +124,12 @@ public class playerController : MonoBehaviour
     {
         if (activeExtraStatus && (firstElementType == "Nature" || secondElementType == "Nature") && life < lifeMax)
         {
-            life += life * 0.010f * Time.deltaTime;
+            life += life * 0.05f * Time.deltaTime;
 
             if (life > lifeMax)
             {
                 life = lifeMax;
             }
-
-            print(life);
         }    
     }
 
