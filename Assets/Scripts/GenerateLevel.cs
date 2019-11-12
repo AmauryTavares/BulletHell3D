@@ -17,23 +17,38 @@ public class GenerateLevel : MonoBehaviour
     public GameObject terrainObject2;
     public GameObject terrainObject3;
     public GameObject terrainObject4;
+    public GameObject terrainObject5;
+    public GameObject terrainObject6;
+    public GameObject terrainObject7;
 
     public int numberOfEnemies;
     public int numberOfTerrain1Objects;
     public int numberOfTerrain2Objects;
     public int numberOfTerrain3Objects;
     public int numberOfTerrain4Objects;
+    public int numberOfTerrain5Objects;
+    public int numberOfTerrain6Objects;
+    public int numberOfTerrain7Objects;
 
     public GameObject terrain;
+    public GameObject extraMap;
     private BoxCollider col;
+
+    public Texture textureTerrain1;
+    public Texture textureTerrain2;
+    public Texture textureTerrain3;
+    public Texture textureTerrain4;
+    public Texture textureTerrain5;
+    public Texture textureTerrain6;
 
     private int mapLevel;
 
-    private List<GameObject> allGameObjects = new List<GameObject>();
+    private List<GameObject> allGameObjectsEnemy = new List<GameObject>();
+    private List<GameObject> allGameObjectsObstables = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        
+        randomTextureTerrain();
     }
 
     // Update is called once per frame
@@ -42,14 +57,54 @@ public class GenerateLevel : MonoBehaviour
         
     }
 
+    void randomTextureTerrain()
+    {
+        int textureRandom = Random.Range(1, 7);
+
+        if (textureRandom == 1)
+        {
+            extraMap.GetComponent<Renderer>().material.mainTexture = textureTerrain1;
+            terrain.GetComponent<Renderer>().material.mainTexture = textureTerrain1;
+        }
+        else if (textureRandom == 2)
+        {
+            extraMap.GetComponent<Renderer>().material.mainTexture = textureTerrain2;
+            terrain.GetComponent<Renderer>().material.mainTexture = textureTerrain2;
+        }
+        else if (textureRandom == 3)
+        {
+            extraMap.GetComponent<Renderer>().material.mainTexture = textureTerrain3;
+            terrain.GetComponent<Renderer>().material.mainTexture = textureTerrain3;
+        }
+        else if (textureRandom == 4)
+        {
+            extraMap.GetComponent<Renderer>().material.mainTexture = textureTerrain4;
+            terrain.GetComponent<Renderer>().material.mainTexture = textureTerrain4;
+        }
+        else if (textureRandom == 5)
+        {
+            extraMap.GetComponent<Renderer>().material.mainTexture = textureTerrain5;
+            terrain.GetComponent<Renderer>().material.mainTexture = textureTerrain5;
+        }
+        else if (textureRandom == 6)
+        {
+            extraMap.GetComponent<Renderer>().material.mainTexture = textureTerrain6;
+            terrain.GetComponent<Renderer>().material.mainTexture = textureTerrain6;
+        }
+    }
+
     public void spawnMap(int level)
     {
         mapLevel = level;
         col = terrain.GetComponent<BoxCollider>();
+        randomTextureTerrain();
         GenerateObject(terrainObject1, numberOfTerrain1Objects);
         GenerateObject(terrainObject2, numberOfTerrain2Objects);
         GenerateObject(terrainObject3, numberOfTerrain3Objects);
         GenerateObject(terrainObject4, numberOfTerrain4Objects);
+        GenerateObject(terrainObject5, numberOfTerrain5Objects);
+        GenerateObject(terrainObject6, numberOfTerrain6Objects);
+        GenerateObject(terrainObject7, numberOfTerrain7Objects);
         GenerateObject(enemyFire, Mathf.RoundToInt(numberOfEnemies / 5));
         GenerateObject(enemyWater, Mathf.RoundToInt(numberOfEnemies / 5));
         GenerateObject(enemyEarth, Mathf.RoundToInt(numberOfEnemies / 5));
@@ -57,16 +112,24 @@ public class GenerateLevel : MonoBehaviour
         GenerateObject(enemyNature, Mathf.RoundToInt(numberOfEnemies / 5));
     }
 
-    public void destroyAllGameObjects()
+
+    public void destroyAllGameObjectsEnemy()
     {
-        foreach (GameObject gameObj in allGameObjects)
+        foreach (GameObject gameObj in allGameObjectsEnemy)
         {
             if (gameObj != null && gameObj.tag == "Enemy")
             {
                 gameObj.GetComponent<enemyController>().addScore = false;
                 gameObj.GetComponent<enemyController>().life = 0;
             }
-            else
+        }
+    }
+
+    public void destroyAllGameObjectsObstacles()
+    {
+        foreach (GameObject gameObj in allGameObjectsObstables)
+        {
+            if (gameObj != null)
             {
                 GameObject.Destroy(gameObj);
             }
@@ -108,9 +171,14 @@ public class GenerateLevel : MonoBehaviour
                 tmp.GetComponent<enemyController>().cooldownAttackMax *= mult;
                 tmp.GetComponent<enemyController>().score = Mathf.RoundToInt(tmp.GetComponent<enemyController>().score * mult);
                 tmp.GetComponent<enemyController>().gameManager = gameObject;
+
+                allGameObjectsEnemy.Add(tmp);
+            }
+            else
+            {
+                allGameObjectsObstables.Add(tmp);
             }
 
-            allGameObjects.Add(tmp);
 
             Vector3 randomPoint = GetRandomPoint();
             tmp.gameObject.transform.position = new Vector3(randomPoint.x, tmp.transform.position.y, randomPoint.z);

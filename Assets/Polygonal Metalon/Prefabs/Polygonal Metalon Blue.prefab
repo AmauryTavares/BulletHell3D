@@ -1652,7 +1652,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.026788909, g: 0.09596562, b: 0.8113208, a: 1}
-  m_Intensity: 10
+  m_Intensity: 15
   m_Range: 8
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1671,9 +1671,9 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 10, y: 10}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0

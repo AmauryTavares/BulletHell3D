@@ -6,7 +6,13 @@ public class ProjectileCollider : MonoBehaviour
 {
     public float damage = 0f;
     public string elementType = "Fire";
-    public GameObject explosion;
+    private GameObject explosion;
+
+    public GameObject explosionRed;
+    public GameObject explosionBlue;
+    public GameObject explosionGreen;
+    public GameObject explosionYellow;
+    public GameObject explosionOrange;
 
     // Start is called before the first frame update
     void Start()
@@ -25,27 +31,47 @@ public class ProjectileCollider : MonoBehaviour
         print(other.gameObject.tag);
         if (other.gameObject.tag == "Wall")
         {
-            //spawnExplosion();
+            spawnExplosion();
             GameObject.Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Player")
         {
-            //spawnExplosion();
+            spawnExplosion();
             GameObject.Destroy(gameObject);
         } 
         else if (other.gameObject.tag == "Enemy")
         {
-            //spawnExplosion();
+            spawnExplosion();
             GameObject.Destroy(gameObject);
         }
     }
 
     void spawnExplosion ()
     {
+        if (elementType == "Fire")
+        {
+            explosion = explosionRed;
+        }
+        else if(elementType == "Nature")
+        {
+            explosion = explosionGreen;
+        }
+        else if (elementType == "Water")
+        {
+            explosion = explosionBlue;
+        }
+        else if (elementType == "Lightning")
+        {
+            explosion = explosionYellow;
+        }
+        else if (elementType == "Earth")
+        {
+            explosion = explosionOrange;
+        }
+
         GameObject exp = Instantiate(explosion);
-        exp.transform.parent = gameObject.transform;
+        //exp.transform.parent = gameObject.transform;
         exp.transform.position = gameObject.transform.position;
         exp.transform.rotation = gameObject.transform.rotation;
-        exp.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
     }
 }

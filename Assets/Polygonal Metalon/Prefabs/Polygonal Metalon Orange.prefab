@@ -832,6 +832,8 @@ MonoBehaviour:
   damageAttack: 80
   cooldownAttack: 3
   cooldownAttackMax: 3
+  score: 50
+  addScore: 1
 --- !u!54 &2607075663914206480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1649,8 +1651,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.764151, g: 0.4704253, b: 0.025231415, a: 1}
-  m_Intensity: 10
+  m_Color: {r: 0.8679245, g: 0.6491795, b: 0.028657902, a: 1}
+  m_Intensity: 15
   m_Range: 8
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1669,7 +1671,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

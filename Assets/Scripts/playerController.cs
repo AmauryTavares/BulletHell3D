@@ -19,7 +19,7 @@ public class playerController : MonoBehaviour
     private float lifeMax = 1500;
     private float life = 1500;
     private float shield = 0;
-    private float shieldMax = 300;
+    private float shieldMax = 150;
     private float damageAttack = 150f;
     private float velocity = 10;
     private float normalVelocity = 10;
@@ -159,11 +159,17 @@ public class playerController : MonoBehaviour
 
     void orbUp()
     {
-        firstElement.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-        firstElement.GetComponent<orbRotateClockwisePlayer>().velocity = orbRotateVelocity * 3;
+        if (firstElement != null)
+        {
+            firstElement.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            firstElement.GetComponent<orbRotateClockwisePlayer>().velocity = orbRotateVelocity * 3;
+        }
 
-        secondElement.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-        secondElement.GetComponent<orbRotateAntiClockwisePlayer>().velocity = orbRotateVelocity * 3;
+        if (secondElement != null)
+        {
+            secondElement.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            secondElement.GetComponent<orbRotateAntiClockwisePlayer>().velocity = orbRotateVelocity * 3;
+        }
     }
 
     void orbDown()
